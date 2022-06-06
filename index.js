@@ -1,14 +1,24 @@
-
-let firstCard = getRandomCard() ;
-let secondCard = getRandomCard() ;
-let cards = [firstCard, secondCard] ;
+let player = {
+    name: "Per" ,
+    chips: "145",
+    sayHello() { // this is function which can be written also as sayHello: function() {} which is abbrevated as sayHello() {}
+        console.log("Hey!")
+    }
+}
+let cards = [] ;
+let sum = 0 ;
 let hasBlackjack = false ;
-let isAlive = true ;
+let isAlive = false ;
 let message = "" ;
 let messageEl = document.getElementById("message-el") ;
 let sumEl = document.querySelector("#sum-el") ; // querySelector s another powerful way of selecting html elements based on their classes or id's
 let cardsEl = document.querySelector("#cards-el") ;
-let sum = firstCard + secondCard  ;
+
+let playerEl = document.getElementById("player-el") ;
+playerEl.textContent = `${player.name}: ${player.chips}` ; // String literals
+
+console.log(cards) ;
+
  
 function getRandomCard() {
     let randomNumber =  Math.floor(Math.random() * 13) + 1 ;
@@ -22,6 +32,11 @@ function getRandomCard() {
 }
 
 function startGame() {
+    isAlive = true ;
+    let firstCard = getRandomCard() ;
+    let secondCard = getRandomCard() ;
+    cards = [firstCard, secondCard] ;
+    sum = firstCard + secondCard  ;
     renderGame() ;
 } 
 
@@ -44,9 +59,11 @@ function renderGame() {
 }
 
 function newCard() {
+    if (isAlive === true && hasBlackjack === false) {
     console.log("Drawing a new card from the deck!") ;
     let card = getRandomCard() ;
     sum += card ;
     cards.push(card) ;
     renderGame() ;
+    }
 }
