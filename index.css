@@ -20,7 +20,12 @@ p {
     font-size: 1.2rem;
 }
 
-#start-btn {
+button {
+    display: block;
+    margin: 10px auto;
+}
+
+.start-btn, .newCard-btn {
     color: #016f32;
     width: 150px;
     background: goldenrod;
