@@ -16,15 +16,12 @@ let cardsEl = document.querySelector("#cards-el") ;
 
 let playerEl = document.getElementById("player-el") ;
 playerEl.textContent = `${player.name}: ${player.chips}` ; // String literals
-
-console.log(cards) ;
-
  
 function getRandomCard() {
     let randomNumber =  Math.floor(Math.random() * 13) + 1 ;
     if (randomNumber > 10) {
         return 10;
-    } else if(randomNumber === 1) {
+    } else if (randomNumber === 1) {
         return 11;
     } else {
     return randomNumber ;
@@ -42,7 +39,7 @@ function startGame() {
 
 function renderGame() {
     cardsEl.textContent = "Cards: " ;
-    for (i = 0; i < cards.length; i++) {
+    for (let i = 0; i < cards.length; i++) {
     cardsEl.textContent += cards[i] + " " ;
     }
     sumEl.textContent = "Sum: " + sum ;
